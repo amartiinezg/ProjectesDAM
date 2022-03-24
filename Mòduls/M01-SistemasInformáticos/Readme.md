@@ -1,1 +1,1 @@
-MP01- Sistemes Informàtics
+MP01 - Sistemes Informàtics
