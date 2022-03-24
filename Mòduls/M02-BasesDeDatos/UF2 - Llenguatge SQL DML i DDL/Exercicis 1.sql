@@ -1,0 +1,32 @@
+CREATE DATABASE dades_bd;
+USE dades_bd;
+CREATE TABLE TREBALL
+   (nom	VARCHAR(20) NOT NULL PRIMARY KEY,
+   edat	SMALLINT,
+   carrec VARCHAR(50)
+   );
+CREATE TABLE CIUTAT
+   (nom	VARCHAR(25) NOT NULL PRIMARY KEY,
+   comarca VARCHAR(25) NOT NULL,
+   provincia VARCHAR(25) NOT NULL,
+   habitants SMALLINT,
+   edat	SMALLINT NOT NULL,
+   carrec VARCHAR(25) NOT NULL
+   );
+CREATE TABLE CLIENTE
+   (idclient SMALLINT AUTO_INCREMENT PRIMARY KEY,
+   nom	VARCHAR(25) UNIQUE,
+   cognoms VARCHAR(25) UNIQUE,
+   datanaixement date,
+   tipus VARCHAR(25) DEFAULT "Habitual"
+   );
+CREATE TABLE DEPARTAMENT
+   (numero NUMERIC(2),
+   nom	VARCHAR(9) UNIQUE,
+   localitzacio VARCHAR(10) UNIQUE
+   );
+CREATE TABLE DEPARTAMENT2
+   (numero NUMERIC(2) PRIMARY KEY,
+   nom	VARCHAR(9) UNIQUE,
+   localitzacio VARCHAR(10) UNIQUE
+   );

@@ -1,0 +1,27 @@
+select distinct b.nombre from resultados a, pilotos b
+where a.distanciaganador != "Abandono" and b.codigo = a.codpiloto
+group by a.nombregp, a.anyo;
+
+select b.nombre, a.nombregp, a.anyo from resultados a, pilotos b
+where puesto = (select max(puesto) from resultados where nombregp = a.nombregp and anyo = a.anyo) and b.codigo = a.codpiloto
+group by a.nombregp, a.anyo;
+
+select disenyador from circuitos
+where disenyador is not null
+order by longitud limit 1;
+
+select b.nombre, b.nombreescuderia from resultados a, pilotos b
+where b.codigo = a.codpiloto and a.puesto = 1
+group by b.nombre
+having count(a.puesto) > 1;
+
+select distinct b.nombre from resultados a, pilotos b
+where b.codigo = a.codpiloto and a.puesto != "1" and a.anyo = 2011 and (year(now()) - year(b.fechanacimiento)) > 30;
+
+select a.nombrecircuito from carreras a, resultados b, pilotos c
+where a.nombregp = b.nombregp and a.año = b.anyo and c.codigo = b.codpiloto and b.puesto = 1 and c.nacionalidad != "Alemana"
+group by a.nombrecircuito;
+
+select distinct b.nombre, b.codigo, count(a.puesto) from resultados a, pilotos b
+where a.codpiloto = b.codigo and a.anyo = 2010 and a.puesto = "3"
+order by count(puesto) desc;
